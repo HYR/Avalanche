@@ -4,7 +4,7 @@ class HomeScreen < PM::TableScreen
 
   def on_load
     #set_nav_bar_button :left, system_item: :camera, action: :nav_left_button
-    set_nav_bar_button :right, system_item: :add, action: :nav_right_button
+    set_nav_bar_button :right, system_item: :add, action: :new_debt
 
     #@hello_world_label = append!(UILabel, :hello_world)
   end
@@ -24,6 +24,11 @@ class HomeScreen < PM::TableScreen
         { title: "Log out", action: :log_out }
       ]
     }]
+  end
+
+  def new_debt
+    mp "New Debt"
+    open_modal(NewDebtScreen)
   end
 
   # You don't have to reapply styles to all UIViews, if you want to optimize,

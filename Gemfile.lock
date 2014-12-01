@@ -77,5 +77,6 @@ PLATFORMS
 DEPENDENCIES
   afmotion
   cdq
+  motion_print
   rake
   redpotion
