@@ -28,7 +28,7 @@ class HomeScreen < PM::TableScreen
 
   def new_debt
     mp "New Debt"
-    open_modal(NewDebtScreen)
+    open_modal NewDebtScreen.new(nav_bar: true)
   end
 
   # You don't have to reapply styles to all UIViews, if you want to optimize,
