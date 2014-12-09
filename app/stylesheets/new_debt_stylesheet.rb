@@ -17,4 +17,11 @@ class NewDebtStylesheet < ApplicationStylesheet
     st.text = 'Hello World'
   end
 
+  def close_modal(st)
+    st.frame = {top: 300, width: 200, height: 18, centered: :horizontal}
+    st.color = color.battleship_gray
+    st.font = font.medium
+    st.text = 'New Debt Screen!'
+  end
+
 end
