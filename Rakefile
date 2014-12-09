@@ -53,7 +53,13 @@ Motion::Project::App.setup do |app|
   #   pod 'SVProgressHUD'
   #   pod 'JMImageCache'
   # end
- 
+
+  app.development do
+    app.pods do
+      pod "Reveal-iOS-SDK"
+    end
+  end
+
   puts "Name: #{app.name}"
   puts "Using profile: #{app.provisioning_profile}"
   puts "Using certificate: #{app.codesign_certificate}"
