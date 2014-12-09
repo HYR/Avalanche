@@ -20,8 +20,13 @@ class HomeScreen < PM::TableScreen
   def table_data
     [{
       cells: [
-        { title: "About this app", action: :view_debt },
-        { title: "Log out", action: :view_debt }
+        { title: "About this app",
+          action: :view_debt,
+          arguments: { data: [ "cell_1" ] }
+          },
+        { title: "Log out",
+          action: :view_debt,
+          arguments: { data: [ "cell_2" ] } }
       ]
     }]
   end
