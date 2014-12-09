@@ -11,4 +11,14 @@ class DebtDetailScreenStylesheet < ApplicationStylesheet
   def root_view(st)
     st.background_color = color.white
   end
+
+  def test_label(st)
+    st.text = 'rmq is awesome'
+    st.font = font.system(12)
+    st.color = color.black
+    st.text_alignment = :center
+
+    st.resize_to_fit_text
+    st.size_to_fit
+  end
 end
