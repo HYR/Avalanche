@@ -3,6 +3,9 @@ GEM
   specs:
     ProMotion (2.2.0)
       methadone (~> 1.7)
+    ProMotion-form (0.2.0)
+      ProMotion (~> 2.0)
+      motion-cocoapods (~> 1.4)
     activesupport (3.2.21)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
@@ -75,6 +78,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ProMotion-form
   afmotion
   cdq
   motion_print

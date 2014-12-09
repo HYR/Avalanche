@@ -20,14 +20,17 @@ PODS:
   - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - FXForms (1.2.10)
   - Reveal-iOS-SDK (1.0.6)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.4.1)
+  - FXForms
   - Reveal-iOS-SDK
 
 SPEC CHECKSUMS:
   AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
+  FXForms: 758fe50c354f10e707cd1a47e5c4ac9198404427
   Reveal-iOS-SDK: 74a39b426dbc915962704ed24f43ee32ae7797f9
 
 COCOAPODS: 0.35.0
