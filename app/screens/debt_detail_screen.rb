@@ -3,8 +3,17 @@ class DebtDetailScreen < PM::Screen
   stylesheet DebtDetailScreenStylesheet
 
   def on_load
-    set_nav_bar_button :right, title: "Save", action: :done, type: :done
+    set_nav_bar_button :right, title: "Edit", action: :edit, type: :edit
+    #set_nav_bar_button :right, title: "Done", action: :done, type: :done
+
+    append(UILabel, :test_label)
   end
+
+  def edit
+
+  end
+
+
 
   # You don't have to reapply styles to all UIViews, if you want to optimize,
   # another way to do it is tag the views you need to restyle in your stylesheet,
