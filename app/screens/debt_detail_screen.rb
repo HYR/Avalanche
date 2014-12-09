@@ -1,8 +1,9 @@
 class DebtDetailScreen < PM::Screen
-  title "Your title here"
+  title "[Debt Details]"
   stylesheet DebtDetailScreenStylesheet
 
   def on_load
+    set_nav_bar_button :right, title: "Save", action: :done, type: :done
   end
 
   # You don't have to reapply styles to all UIViews, if you want to optimize,

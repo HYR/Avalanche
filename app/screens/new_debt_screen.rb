@@ -10,7 +10,7 @@ class NewDebtScreen < PM::Screen
   end
 
   def done
-    mp "Close Modal Called."
+    PM.logger.info "Closing Screen"
     close
   end
 

@@ -20,8 +20,8 @@ class HomeScreen < PM::TableScreen
   def table_data
     [{
       cells: [
-        { title: "About this app", action: :tapped_about },
-        { title: "Log out", action: :log_out }
+        { title: "About this app", action: :view_debt },
+        { title: "Log out", action: :view_debt }
       ]
     }]
   end
@@ -29,6 +29,11 @@ class HomeScreen < PM::TableScreen
   def new_debt
     mp "New Debt"
     open_modal NewDebtScreen.new(nav_bar: true)
+  end
+
+  def view_debt
+    mp "New Debt"
+    open DebtDetailScreen.new(nav_bar: true)
   end
 
   # You don't have to reapply styles to all UIViews, if you want to optimize,
