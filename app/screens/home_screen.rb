@@ -6,7 +6,37 @@ class HomeScreen < PM::TableScreen
     #set_nav_bar_button :left, system_item: :camera, action: :nav_left_button
     set_nav_bar_button :right, system_item: :add, action: :new_debt
 
-    #@hello_world_label = append!(UILabel, :hello_world)
+
+    @debts = [{
+      title: "Big Old Bank",
+      type: "Mortgage",
+      balance: 159_593.05,
+    },
+    {
+      title: "Aunt Josephine",
+      type: "Personal Loan",
+      balance: 5_339.64,
+    },
+    {
+      title: "Local Credit Union",
+      type: "Car Loan",
+      balance: 15_349.89,
+    },
+    {
+      title: "MSU",
+      type: "Student Loan",
+      balance: 35_229.12,
+    },
+    {
+      title: "Chase Visa",
+      type: "Credit Card",
+      sub_type: "Visa",
+      balance: 10_947.33,
+    }]
+
+    @debts.sort_by! do |h|
+      h["title"]
+    end
   end
 
   def nav_left_button
@@ -18,17 +48,37 @@ class HomeScreen < PM::TableScreen
   end
 
   def table_data
-    [{
-      cells: [
-        { title: "About this app",
-          action: :view_debt,
-          arguments: { data: [ "cell_1" ] }
-          },
-        { title: "Log out",
-          action: :view_debt,
-          arguments: { data: [ "cell_2" ] } }
-      ]
-    }]
+    cells = []
+
+    cells = @debts.map.with_index do |debt, index|
+
+      cell_setup = {
+        title: "",
+        action: :view_debt,
+        arguments: { data: debt[:title]},
+        properties: {
+          debt: debt
+        }
+      }
+
+      cell_type = if index == 0
+        {
+          cell_class: FocusDebtCell,
+          height: stylesheet.focus_cell_height,
+        }
+      else
+        {
+          cell_class: DebtCell,
+          height: stylesheet.cell_height
+        }
+      end
+
+      cell_setup.merge!(cell_type)
+    end
+
+    mp cells
+
+    [cells: cells]
   end
 
   def new_debt
@@ -38,7 +88,8 @@ class HomeScreen < PM::TableScreen
 
   def view_debt
     mp "New Debt"
-    open DebtDetailScreen.new(nav_bar: true)
+    #open DebtDetailScreen.new(nav_bar: true)
+    open DebtsScreen.new(nav_bar: true)
   end
 
   # You don't have to reapply styles to all UIViews, if you want to optimize,
