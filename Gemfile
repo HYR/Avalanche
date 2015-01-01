@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rake'
-gem 'redpotion' #, :git => 'git@github.com:infinitered/redpotion.git'
+gem 'redpotion', :git => 'git@github.com:infinitered/redpotion.git'
 gem "cdq" # Core Data
 gem "afmotion" # Networking
 gem 'motion_print'
