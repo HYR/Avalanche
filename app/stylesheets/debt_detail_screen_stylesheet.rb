@@ -8,17 +8,26 @@ class DebtDetailScreenStylesheet < ApplicationStylesheet
     # Add application specific setup stuff in application_stylesheet.rb
   end
 
+  def data(debt)
+    @debt = debt
+  end
   def root_view(st)
     st.background_color = color.white
   end
 
-  def test_label(st)
-    st.text = 'rmq is awesome'
-    st.font = font.system(12)
+  def title_label(st)
+    if @debt != nil
+      st.text = @debt[:title]
+    else
+      st.text = 'No Title'
+    end
+    st.font = font.small
     st.color = color.black
     st.text_alignment = :center
+    st.frame = {l: 0, t: 0, w: device.width, h: 300}
 
-    st.resize_to_fit_text
-    st.size_to_fit
+    st.background_color = color.random
+    # st.resize_to_fit_text
+    # st.size_to_fit
   end
 end

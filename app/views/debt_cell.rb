@@ -4,6 +4,7 @@ class DebtCell < UITableViewCell
     q_content_view = find(self.contentView)
     q_content_view.apply_style(:cell_content_view)
     @name = q_content_view.append!(UILabel, :cell_name)
+    @type = q_content_view.append!(UILabel, :cell_type)
 
   end
 
@@ -17,6 +18,7 @@ class DebtCell < UITableViewCell
   # Update cell content the ProMotion way
   def debt=(debt)
     @name.text = debt[:title]
+    @type.text = debt[:type]
     # @subject.text = debt.last_payment
     # @message.text = debt.estimated_end_date
   end

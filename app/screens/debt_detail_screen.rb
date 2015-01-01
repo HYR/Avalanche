@@ -1,12 +1,17 @@
 class DebtDetailScreen < PM::Screen
   title "[Debt Details]"
   stylesheet DebtDetailScreenStylesheet
+  attr_accessor :data
 
   def on_load
     set_nav_bar_button :right, title: "Edit", action: :edit, type: :edit
     #set_nav_bar_button :right, title: "Done", action: :done, type: :done
 
-    append(UILabel, :test_label)
+    mp @data
+
+    stylesheet.data(@data[:debt])
+    l = append!(UILabel, :title_label)
+
   end
 
   def edit

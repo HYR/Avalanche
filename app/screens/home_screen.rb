@@ -32,10 +32,16 @@ class HomeScreen < PM::TableScreen
       type: "Credit Card",
       sub_type: "Visa",
       balance: 10_947.33,
+    },
+    {
+      title: "Chase Visa 2",
+      type: "Credit Card",
+      sub_type: "Visa",
+      balance: 10_947.33,
     }]
 
-    @debts.sort_by! do |h|
-      h["title"]
+    @debts.sort_by! do |h,v|
+      v
     end
   end
 
@@ -55,7 +61,7 @@ class HomeScreen < PM::TableScreen
       cell_setup = {
         title: "",
         action: :view_debt,
-        arguments: { data: debt[:title]},
+        arguments: { debt: debt},
         properties: {
           debt: debt
         }
@@ -86,10 +92,9 @@ class HomeScreen < PM::TableScreen
     open_modal NewDebtScreen.new(nav_bar: true)
   end
 
-  def view_debt
+  def view_debt(debt)
     mp "New Debt"
-    #open DebtDetailScreen.new(nav_bar: true)
-    open DebtsScreen.new(nav_bar: true)
+    open DebtDetailScreen.new(nav_bar: true, data: debt)
   end
 
   # You don't have to reapply styles to all UIViews, if you want to optimize,
