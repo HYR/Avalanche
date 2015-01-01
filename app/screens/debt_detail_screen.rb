@@ -1,24 +1,22 @@
 class DebtDetailScreen < PM::Screen
-  title "[Debt Details]"
   stylesheet DebtDetailScreenStylesheet
   attr_accessor :data
 
+
   def on_load
+    @debt = @data[:debt]
+
+    self.title = @debt[:title].to_s
+
     set_nav_bar_button :right, title: "Edit", action: :edit, type: :edit
     #set_nav_bar_button :right, title: "Done", action: :done, type: :done
 
-    mp @data
-
-    stylesheet.data(@data[:debt])
+    stylesheet.data(@debt)
     l = append!(UILabel, :title_label)
-
   end
 
   def edit
-
   end
-
-
 
   # You don't have to reapply styles to all UIViews, if you want to optimize,
   # another way to do it is tag the views you need to restyle in your stylesheet,
