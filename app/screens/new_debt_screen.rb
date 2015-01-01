@@ -4,6 +4,7 @@ class NewDebtScreen < PM::FormScreen
 
   def on_load
     set_nav_bar_button :right, title: "Save", action: :save, type: :save
+    set_nav_bar_button :left, title: "Cancel", action: :cancel, type: :cancel
   end
 
   def form_data
@@ -45,6 +46,10 @@ class NewDebtScreen < PM::FormScreen
 
   def save
     PM.logger.info "Save and close screen."
+    close
+  end
+
+  def cancel
     close
   end
 
